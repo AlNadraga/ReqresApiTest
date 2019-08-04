@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies{
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.65")
+    }
+}
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.41'
+}
+apply plugin: 'net.serenity-bdd.aggregator'
+
+group 'alnadraga.reqres.restapitest'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'net.serenity-bdd', name: 'serenity-core', version: '2.0.65'
+    testCompile group: 'net.serenity-bdd', name: 'serenity-junit', version: '2.0.65'
+    testCompile group: 'net.serenity-bdd', name: 'serenity-rest-assured', version: '2.0.65'
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.26'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
